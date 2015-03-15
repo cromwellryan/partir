@@ -18,4 +18,12 @@ class DeploysControllerTest < ActionController::TestCase
       post :create, project_id: @project, deploy: { sha: 'abc123', environment: 'development' }
     end
   end
+
+  test 'can include json fragments' do
+    post :create, project_id: @project, deploy: { environment: 'test', 
+                                                  performance: { speedIndex: 1092 }
+    }
+
+    @project.deploys.last
+  end
 end

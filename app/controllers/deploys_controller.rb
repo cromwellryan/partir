@@ -1,6 +1,5 @@
 class DeploysController < ApplicationController
   before_action :set_deploy, only: [:show, :destroy]
-  skip_before_action :verify_authenticity_token, if: :json_request?
 
   # GET /projects/:project_id/deploys
   # GET /projects/:project_id/deploys.json

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   resources :projects do
-    resources :deploys
+    resources :deploys do
+      resources :attachments, only: [:index, :show, :create]
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

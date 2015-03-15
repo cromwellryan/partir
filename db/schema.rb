@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314205738) do
+ActiveRecord::Schema.define(version: 20150315040639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer  "deploy_id"
+    t.json     "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "attachments", ["deploy_id"], name: "index_attachments_on_deploy_id", using: :btree
 
   create_table "deploys", force: :cascade do |t|
     t.datetime "occurred_at"
@@ -34,5 +43,6 @@ ActiveRecord::Schema.define(version: 20150314205738) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attachments", "deploys"
   add_foreign_key "deploys", "projects"
 end

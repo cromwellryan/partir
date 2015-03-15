@@ -19,4 +19,9 @@ class DeployTest < ActiveSupport::TestCase
     @deploy.environment = nil
     assert_not @deploy.save, "Saved the deploy without an environment"
   end
+
+  test 'accepts attachments' do
+    attachment = @deploy.add_attachment data: { speedIndex: 1902 }
+    assert_equal @deploy, attachment.deploy
+  end
 end
