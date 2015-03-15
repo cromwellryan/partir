@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  token: MyString
+  name: Project One
+  token: 7s9658UKsdh8gidPdM41Z7hs3dSIpEwd
 
 two:
-  name: MyString
-  token: MyString
+  name: Project Two
+  token: dwEpISd3sh7Z14MdPdig8hdsKU8569s7

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225044224) do
+ActiveRecord::Schema.define(version: 20150314205738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "deploys", force: :cascade do |t|
+    t.datetime "occurred_at"
+    t.integer  "project_id"
+    t.string   "sha"
+    t.string   "environment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "deploys", ["project_id"], name: "index_deploys_on_project_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -23,4 +34,5 @@ ActiveRecord::Schema.define(version: 20150225044224) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "deploys", "projects"
 end

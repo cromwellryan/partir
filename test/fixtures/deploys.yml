@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  occurred_at: 2015-03-14 16:57:38
+  project: one
+  sha: de2c56b300259f4eaf52b81efceadd0f3cf38572
+  environment: development
+
+two:
+  occurred_at: 2015-03-14 16:57:38
+  project: two
+  sha: 321c87e4f91ded9aa422bcbb10b540becac44624
+  environment: test

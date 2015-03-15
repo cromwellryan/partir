@@ -22,4 +22,16 @@ class ProjectTest < ActiveSupport::TestCase
     @project.save
     assert_equal 32, @project.token.length
   end
+
+  test 'can record a deployment' do
+    deploy = @project.record_deploy
+
+    assert_equal @project, deploy.project
+  end
+
+  test 'can record a deploy with sha' do
+    deploy = @project.record_deploy sha: 'SHA'
+
+    assert_equal 'SHA', deploy.sha
+  end
 end
