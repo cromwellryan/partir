@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   tokenize :token, length: 32
 
-  has_many :deploys
+  has_many :deploys, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 
