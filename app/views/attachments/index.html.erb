@@ -13,7 +13,7 @@
   <tbody>
     <% @attachments.each do |attachment| %>
       <tr>
-        <td><%= attachment.data%></td>
+        <td><%= render attachment%></td>
         <td><%= link_to 'Show', [@project, @deploy, attachment] %></td>
         <td><%= link_to 'Destroy', [@project, @deploy, attachment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

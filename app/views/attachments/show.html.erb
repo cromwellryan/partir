@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= render @attachment%>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project, @deploy, @attachment) %> |
+<%= link_to 'Back', projects_path %>

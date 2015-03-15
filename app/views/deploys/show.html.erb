@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Occurred:</strong>
+  <%= time_ago_in_words @deploy.occurred_at %> ago
+</p>
+
+<p>
+  <strong>Environment:</strong>
+  <%= @deploy.environment %>
+</p>
+
+<p>
+  <strong>SHA:</strong>
+  <%= @deploy.sha %>
+</p>
+
+<p>
+  <strong>Attachments:</strong>
+<%= render @deploy.attachments %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

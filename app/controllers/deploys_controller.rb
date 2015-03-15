@@ -11,6 +11,7 @@ class DeploysController < ApplicationController
   # GET /projects/:project_id/deploys/1
   # GET /projects/:project_id/deploys/1.json
   def show
+    @project = @deploy.project
   end
 
   # POST /projects/:project_id/deploys

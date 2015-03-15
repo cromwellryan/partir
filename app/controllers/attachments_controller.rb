@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
-  before_action :set_project, only: [:index, :create, :destroy]
-  before_action :set_deploy, only: [:index, :create, :destroy]
+  before_action :set_project, only: [:index, :show, :create, :destroy]
+  before_action :set_deploy, only: [:index, :show, :create, :destroy]
 
   def index
     @attachments = @deploy.attachments
