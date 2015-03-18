@@ -1,4 +1,6 @@
 class Deploy < ActiveRecord::Base
+  serialize :sha, SHA
+
   belongs_to :project
 
   has_many :attachments, dependent: :destroy
@@ -8,6 +10,7 @@ class Deploy < ActiveRecord::Base
   validates :environment, presence: true
 
   scope :recent, -> { order(occurred_at: "DESC").limit(5) }
+
 
   def add_attachment(data)
     Attachment.new deploy: self, data: data

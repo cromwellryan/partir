@@ -17,12 +17,14 @@
 
 <p>
   <strong>SHA:</strong>
-  <%= @deploy.sha %>
+  <%= @deploy.sha.abbr %>
 </p>
 
 <p>
   <strong>Attachments:</strong>
-<%= render @deploy.attachments %>
+  <ul>
+    <%= render partial: 'attachments/attachment', layout: 'li', collection: @deploy.attachments %>
+  </ul
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
