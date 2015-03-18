@@ -29,8 +29,6 @@ class DeploysController < ApplicationController
         format.json { render json: @deploy.errors, status: :unprocessable_entity }
       end
     end
-
-    Rails.logger.debug @deploy.errors.full_messages
   end
 
   # PATCH/PUT /deploys/1
