@@ -9,7 +9,7 @@ class SHA
         raise ::ActiveRecord::SerializationTypeMismatch,
           "Attribute was supposed to be a #{self}, but was a #{obj.class}. -- #{obj.inspect}"
       end
-      obj.length
+      obj.to_s(format: :full)
     end
   end
 
@@ -27,7 +27,7 @@ class SHA
   def to_s(options={})
     if [:short, :abbr].include?(options[:format])
       sha[0..7]
-    else
+    else #:full
       sha.to_s
     end
   end
