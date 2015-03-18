@@ -1,0 +1,7 @@
+<% if occurred_at.today? %>
+  <%= t(:recent, age: time_ago_in_words(occurred_at) ) %>
+<% else %>
+  <%= time_tag occurred_at %>
+<% end %>
+
+
