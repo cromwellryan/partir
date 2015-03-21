@@ -11,7 +11,6 @@ class Deploy < ActiveRecord::Base
 
   scope :recent, -> { order(occurred_at: "DESC").limit(5) }
 
-
   def add_attachment(data)
     Attachment.new deploy: self, data: data
   end
