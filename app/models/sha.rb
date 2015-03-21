@@ -5,6 +5,7 @@ class SHA
       self.new(sha)
     end
     def dump(obj)
+      return obj if obj.is_a?(String)
       unless obj.is_a?(self)
         raise ::ActiveRecord::SerializationTypeMismatch,
           "Attribute was supposed to be a #{self}, but was a #{obj.class}. -- #{obj.inspect}"
@@ -30,5 +31,9 @@ class SHA
     else #:full
       sha.to_s
     end
+  end
+
+  def as_json(options=nil)
+    to_s(format: :full)
   end
 end
