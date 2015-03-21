@@ -8,7 +8,9 @@ class AttachmentsControllerTest < ActionController::TestCase
 
   test "should get create" do
     assert_difference 'Attachment.count', 1 do
-      get :create, project_id: @project, deploy_id: @deploy, attachment: { data: { speedIndex: 1023 } }
+      get :create, project_id: @project,
+        deploy_id: @deploy,
+        attachment: { data: { speedIndex: 1023 } }
     end
   end
 end

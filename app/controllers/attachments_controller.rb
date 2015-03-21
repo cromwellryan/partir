@@ -11,7 +11,6 @@ class AttachmentsController < ApplicationController
   end
 
   def create
-    Rails.logger.debug attachment_params
     @attachment = @deploy.add_attachment attachment_params
 
     respond_to do |format|
