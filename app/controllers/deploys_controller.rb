@@ -19,6 +19,9 @@ class DeploysController < ApplicationController
   def create
     @project = Project.find params[:project_id]
     @deploy = @project.record_deploy deploy_params
+    attachment_params.each do |attachment|
+      @deploy.add_attachment attachment
+    end
 
     respond_to do |format|
       if @deploy.save
@@ -56,16 +59,21 @@ class DeploysController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_deploy
-      @deploy = Deploy.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_deploy
+    @deploy = Deploy.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def deploy_params
-      params.require(:deploy).permit(:sha, :environment)
-    end
-    def json_request?
-      request.format.json?
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def deploy_params
+    params.require(:deploy).permit(:sha, :environment)
+  end
+
+  def attachment_params
+    params[:deploy][:attachments] || []
+  end
+
+  def json_request?
+    request.format.json?
+  end
 end

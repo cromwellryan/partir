@@ -32,6 +32,6 @@ class ProjectTest < ActiveSupport::TestCase
   test 'can record a deploy with sha' do
     deploy = @project.record_deploy sha: 'SHA'
 
-    assert_equal 'SHA', deploy.sha
+    assert_equal 'SHA', deploy.sha.to_s
   end
 end
